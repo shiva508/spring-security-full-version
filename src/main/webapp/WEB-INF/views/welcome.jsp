@@ -11,9 +11,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>EMPLOYEE PAGE</title>
-</head>
-<script type="text/javascript"
+<title>EMPLOYEE PAGE</title><link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+ <script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+ <script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
+ <script type="text/javascript"
 	src="${pageContext.request.contextPath}/component/js/jquery.min.js">
 	</script>
 <script type="text/javascript"
@@ -40,6 +41,8 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/component/js/dataTables.bootstrap.js">
 	</script>
+</head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
