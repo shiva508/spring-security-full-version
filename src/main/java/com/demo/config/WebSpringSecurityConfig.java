@@ -5,28 +5,38 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity
 public class WebSpringSecurityConfig extends WebSecurityConfigurerAdapter {
 @Override
 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	UserBuilder users=User.withDefaultPasswordEncoder();
 	auth.inMemoryAuthentication()
-	.withUser("shiva").password("{noop}shiva").roles("USER");
+	.withUser(users.username("shiva").password("shiva").roles("ADMIN","EMPLOYEE"))
+	.withUser(users.username("satish").password("satish").roles("CEO","MANAGER","EMPLOYEE"))
+	.withUser(users.username("ravi").password("ravi").roles("RND","MANAGER","EMPLOYEE"));
+	
 }
 	
 	@Override
 		protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+				/*
+				 * .anyRequest().authenticated()//used to authenticate only on user
+				 */
+		.antMatchers("/").hasRole("EMPLOYEE")
+		.antMatchers("/admin/**").hasRole("ADMIN")
 		.and()
 		.formLogin()
 		.loginPage("/loginpage")
 		.loginProcessingUrl("/login")
 		.permitAll()
 		.and()
-		.logout().logoutUrl("/logout");
+		.logout().permitAll()
+		.and().exceptionHandling().accessDeniedPage("/403");
 		}
 	
 }

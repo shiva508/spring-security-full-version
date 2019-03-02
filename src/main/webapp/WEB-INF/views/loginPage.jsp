@@ -19,7 +19,7 @@
   </head>
   <body>
      <div class="container">
-      <form:form class="form-signin" method="post" action="/login">
+      <form:form class="form-signin" method="post" action="${pageContext.request.contextPath}/login">
         <h2 class="form-signin-heading">Please sign in to INFINITY</h2>
         <c:if test="${param.error !=null}">
         <div class="alert alert-danger" role="alert">Bad credentials</div> 
