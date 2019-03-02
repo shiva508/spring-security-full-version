@@ -7,6 +7,24 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/placeholders.jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/component/js/dataTables.bootstrap.js"></script>
 <html lang="en">
   <head>
     <meta charset="utf-8">

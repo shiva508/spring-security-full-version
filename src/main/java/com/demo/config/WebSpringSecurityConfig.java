@@ -29,14 +29,19 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 				 */
 		.antMatchers("/").hasRole("EMPLOYEE")
 		.antMatchers("/admin/**").hasRole("ADMIN")
+		.antMatchers("/ceo/**").hasRole("CEO")
+		.antMatchers("/r&d/").hasAnyRole("RND","MANAGER")
 		.and()
 		.formLogin()
 		.loginPage("/loginpage")
 		.loginProcessingUrl("/login")
 		.permitAll()
 		.and()
-		.logout().permitAll()
-		.and().exceptionHandling().accessDeniedPage("/403");
+		.logout()
+		.permitAll()
+		.and()
+		.exceptionHandling()
+		.accessDeniedPage("/403");
 		}
 	
 }
